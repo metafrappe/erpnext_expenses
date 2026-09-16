@@ -42,10 +42,6 @@ from .journal import (
     enqueue_journal_entry,
     cancel_journal_entry
 )
-from .logger import (
-    get_log_files,
-    load_log_file
-)
 from .realtime import *
 from .request import (
     RequestStatus,
