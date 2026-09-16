@@ -27,5 +27,11 @@ def check_expenses():
     assert get_logger('info') is get_logger('info')
     doc = frappe.get_single('Expenses Settings')
     assert doc.doctype == 'Expenses Settings'
+    from expenses import __version__
+    from expenses.setup.migrate import after_migrate
+    after_migrate()
+    after_migrate()
+    doc.reload()
+    assert doc.current_version == __version__
     for name in ['Expense', 'Expenses Request', 'Expenses Entry']:
         assert frappe.new_doc(name).doctype == name

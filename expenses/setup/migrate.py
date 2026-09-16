@@ -8,7 +8,7 @@
 def after_migrate():
     from expenses import __version__
     
-    from expenses.libs.settings import settings
+    from expenses.libs.system import settings
     
     doc = settings()
     if doc.current_version != __version__:
